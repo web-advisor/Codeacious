@@ -1,8 +1,22 @@
 @media screen and (max-width:476px){
+    
+    #load img{
+        width:17vw;
+        height:17vw;
+        margin:20vh 40vw;
+    }
+
     #load p{
-        position: relative;
-        top:0vh;
-        left:12vw; 
+        position: absolute;
+        top:40vh;
+        left:35vw; 
         font-size: 150%;
+    }
+}
+
+
+@media screen and (max-width:576px){
+    #address-div .submit-button{
+        top:440px;
     }
 }

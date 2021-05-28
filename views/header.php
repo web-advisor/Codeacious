@@ -48,6 +48,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     <?php if (isset($_SESSION['id'])) { ?>
+                        <li class="nav-item" id="profile-button"><a class="nav-link" href="index.php?page=profile">Profile</a></li>
                         <button type="button" id="log-out-button" class="btn btn-md btn-pill btn-default" style="cursor:pointer;"><a href="?process=logout" style="text-decoration:none; font-weight:bolder; color:#fff;">Logout</a></button>
                     <?php } else {   ?>
                         <li class="nav-item" id="sign-up-button"><a class="nav-link" href="#">Sign Up</a></li>
@@ -71,17 +72,17 @@
             </div>
             <div class="form-group">
                 <label for="name">Username</label>
-                <input class="w3-input w3-animate-input" type="text" style="width:20vw" id="name" name="name" data-toggle="tooltip" data-placement="left" title="Minimum length : 4 characters">
+                <input class="w3-input w3-animate-input" autocomplete="off" type="text" style="width:20vw" id="name" name="name" data-toggle="tooltip" data-placement="left" title="Minimum length : 4 characters">
                 <div class="warning alert alert-warning" role="alert"></div>
                 <div class="success alert alert-success" role="alert"></div>
             </div>
             <div class="form-group">
                 <label for="sign-up-email">Email address</label>
-                <input type="email" class="w3-input w3-animate-input" style="width:20vw" id="sign-up-email" name="sign-up-email">
+                <input autocomplete="off" type="email" class="w3-input w3-animate-input" style="width:20vw" id="sign-up-email" name="sign-up-email">
             </div>
             <div class="form-group">
                 <label for="sign-up-password">Password</label>
-                <input type="password" class="w3-input w3-animate-input" style="width:20vw" id="sign-up-password" name="sign-up-password">
+                <input autocomplete="off" type="password" class="w3-input w3-animate-input" style="width:20vw" id="sign-up-password" name="sign-up-password">
             </div>
             <div class="form-group">
                 <div class="form-check">
@@ -108,11 +109,11 @@
             </div>
             <div class="form-group">
                 <label for="log-in-user">Username or Email Address</label>
-                <input type="text" class="w3-input w3-animate-input" id="log-in-user" style="width:20vw" name="log-in-user">
+                <input  autocomplete="off" type="text" class="w3-input w3-animate-input" id="log-in-user" style="width:20vw" name="log-in-user">
             </div>
             <div class="form-group">
                 <label for="log-in-password">Password</label>
-                <input type="password" class="w3-input w3-animate-input" id="log-in-password" style="width:20vw" name="log-in-password">
+                <input  autocomplete="off" type="password" class="w3-input w3-animate-input" id="log-in-password" style="width:20vw" name="log-in-password">
             </div>
             <div class="form-group">
                 <div class="form-check">

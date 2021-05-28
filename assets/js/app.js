@@ -12,6 +12,7 @@ document.onreadystatechange = function () {
     }
 }
 
+// -------------------- Logging In Form 
 var field = document.querySelector('[id="name"]');
 
 field.addEventListener('keypress', function (event) {
@@ -22,7 +23,7 @@ field.addEventListener('keypress', function (event) {
 });
 
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip();
 })
 
 $("#sign-up-button").click(function () {
@@ -51,3 +52,28 @@ $("#sign-up-instead").click(function () {
     $("#sign-up").slideDown();
 });
 
+
+//  ------------ SlideShow ------------
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}

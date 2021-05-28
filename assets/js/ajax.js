@@ -9,7 +9,7 @@ $("#sign-up-submit").click(function () {
         success: function (result) {
             // alert(result);
             if (result == 1) {
-                window.location.assign("?index.php");
+                window.location.assign("index.php?page=profile");
             } else {
                 $("#sign-up .error").html(result).show();
             }
@@ -26,7 +26,7 @@ $("#log-in-submit").click(function () {
         success: function (result) {
             // alert(result);
             if (result == 1) {
-                window.location.assign("?index.php");
+                window.location.assign("index.php?page=profile");
             } else {
                 $("#log-in .error").html(result).show();
             }
