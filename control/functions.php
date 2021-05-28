@@ -5,8 +5,6 @@
     if(mysqli_connect_error()){
         print_r(mysqli_connect_error());
            exit();
-    }else{
-        echo "Database Connected.";
     }
 
     if(isset($_GET['process']) && $_GET['process']=="logout"){

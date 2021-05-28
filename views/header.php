@@ -11,18 +11,38 @@
     <meta name="description" content="We take pride in the fact that we have been serving startups to enterprises for over 9 years now. We work closely with our clients to understand their business problems and apply the best practices to implement, support, and manage their technology. ">
 
     <!-- Logo -->
-    <link rel="icon" href="assets/images/logo/logo.png">
+    <link rel="icon" href="assets/images/logo/logo.svg">
 
     <!-- Title -->
-    <title>Codeacious</title>
+    <title>Ipsum Web</title>
 
     <!-- stylesheets -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" version="1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/home.css" version="1.0">
 
-    </head>
+    <!-- Font Awesome icons -->
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 
-    <body>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
 
+</head>
+
+<body id="page-top">
     <div id="load"></div>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container px-5">
+            <a class="navbar-brand" href="#page-top"><img src="assets/images/logo-light.svg"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#!">Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
