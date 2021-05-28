@@ -86,3 +86,13 @@ if ($_GET["process"] == "signup") {
     }
 }
 
+// Name Check in the database if it is already taken ---------------
+if($_GET["process"]=="namecheck"){
+    $query="SELECT `name` FROM `users` WHERE `name` = '".mysqli_real_escape_string($link,$_POST['username'])."' LIMIT 1";
+    $result=mysqli_query($link,$query);
+    if($result && mysqli_num_rows($result)>0){
+        echo 0;
+    }else{               
+        echo 1;
+    }
+}

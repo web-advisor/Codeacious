@@ -33,3 +33,30 @@ $("#log-in-submit").click(function () {
         }
     })
 });
+
+$("#name").keyup(function(){
+    $.ajax({
+        type: "POST",
+        url:"control/actions.php?process=namecheck",
+        data: "username=" + $("#name").val(),
+        success: function (result) {
+            // alert(result);
+            if (result == 1) {          
+                if($("#name").val()==="" || $("#name").val().length<=4){
+                    $("#sign-up .success").hide();
+                }else{  
+                    $("#sign-up .success").html("<strong>'"+$("#name").val()+"'</strong> is available. ").show();
+                }
+                $("#sign-up .warning").hide();
+            } else {
+          
+                if($("#name").val()==="" || $("#name").val().length<=4){
+                    $("#sign-up .warning").hide();
+                }else{    
+                    $("#sign-up .warning").html("<strong>'"+$("#name").val()+"'</strong> is already taken. ").show();
+                }
+                $("#sign-up .success").hide();
+            }
+        }
+    })
+});

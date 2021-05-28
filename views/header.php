@@ -71,7 +71,9 @@
             </div>
             <div class="form-group">
                 <label for="name">Username</label>
-                <input class="w3-input w3-animate-input" type="text" style="width:20vw" id="name">
+                <input class="w3-input w3-animate-input" type="text" style="width:20vw" id="name" name="name" data-toggle="tooltip" data-placement="left" title="Minimum length : 4 characters">
+                <div class="warning alert alert-warning" role="alert"></div>
+                <div class="success alert alert-success" role="alert"></div>
             </div>
             <div class="form-group">
                 <label for="sign-up-email">Email address</label>
@@ -99,9 +101,9 @@
         <form>
             <div class="error alert alert-danger" role="alert">
                 <?php
-                    if (isset($error) && $error != "") {
-                        echo $error;
-                    }
+                if (isset($error) && $error != "") {
+                    echo $error;
+                }
                 ?>
             </div>
             <div class="form-group">
