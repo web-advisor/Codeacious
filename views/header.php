@@ -43,25 +43,30 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container px-5">
-            <a class="navbar-brand" href="#page-top"><img src="assets/images/logo-light.svg"></a>
+            <a class="navbar-brand" href="index.php"><img src="assets/images/logo-light.svg"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item" id="sign-up-button"><a class="nav-link" href="#">Sign Up</a></li>
-                    <li class="nav-item" id="log-in-button"><a class="nav-link" href="#">Log In</a></li>
+                    <?php if (isset($_SESSION['id'])) { ?>
+                        <button type="button" id="log-out-button" class="btn btn-md btn-pill btn-default" style="cursor:pointer;"><a href="?process=logout" style="text-decoration:none; font-weight:bolder; color:#fff;">Logout</a></button>
+                    <?php } else {   ?>
+                        <li class="nav-item" id="sign-up-button"><a class="nav-link" href="#">Sign Up</a></li>
+                        <li class="nav-item" id="log-in-button"><a class="nav-link" href="#">Log In</a></li>
+                    <?php  }  ?>
                 </ul>
             </div>
         </div>
     </nav>
 
 
+    <!-- Sign Up Form Div -->
     <div id="sign-up">
         <form method="post">
             <div class="error alert alert-danger" role="alert">
                 <?php
-                    if (isset($error) && $error != "") {
-                        echo $error;
-                    }
+                if (isset($error) && $error != "") {
+                    echo $error;
+                }
                 ?>
             </div>
             <div class="form-group">
@@ -78,7 +83,7 @@
             </div>
             <div class="form-group">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="keep-logged-in" value="1" ;>
+                    <input class="form-check-input" type="checkbox" id="keep-logged-in" value="1">
                     <label class="form-check-label" for="keep-logged-in">
                         Check me out
                     </label>
@@ -89,9 +94,16 @@
         </form>
     </div>
 
-
+    <!-- Sign Up Form Div -->
     <div id="log-in" class="w3-container w3-center w3-animate-zoom">
         <form>
+            <div class="error alert alert-danger" role="alert">
+                <?php
+                    if (isset($error) && $error != "") {
+                        echo $error;
+                    }
+                ?>
+            </div>
             <div class="form-group">
                 <label for="log-in-user">Username or Email Address</label>
                 <input type="text" class="w3-input w3-animate-input" id="log-in-user" style="width:20vw" name="log-in-user">
@@ -102,7 +114,7 @@
             </div>
             <div class="form-group">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="keep-logged-in">
+                    <input class="form-check-input" type="checkbox" id="keep-logged-in" value="1">
                     <label class="form-check-label" for="keep-logged-in">
                         Check me out
                     </label>
