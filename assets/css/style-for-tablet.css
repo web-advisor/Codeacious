@@ -1,0 +1,8 @@
+@media screen and (max-width:992px){
+    #load p{
+        position: relative;
+        top:-20vh;
+        left:15vw; 
+        font-size: 300%;
+    }
+}

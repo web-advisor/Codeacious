@@ -18,8 +18,11 @@
 
     <!-- stylesheets -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" version="1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/style-for-tablet.css" version="1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/style-for-mobile.css" version="1.0">
     <link rel="stylesheet" type="text/css" href="assets/css/home.css" version="1.0">
 
     <!-- Font Awesome icons -->
@@ -32,17 +35,72 @@
 </head>
 
 <body id="page-top">
-    <div id="load"></div>
+    <div id="load">
+        <img src="assets/images/logo/logo.svg" class="w3-spin" alt="Loading....">
+        <p>Loading... </p>
+    </div>
+
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container px-5">
             <a class="navbar-brand" href="#page-top"><img src="assets/images/logo-light.svg"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#!">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Log In</a></li>
+                    <li class="nav-item" id="sign-up-button"><a class="nav-link" href="#">Sign Up</a></li>
+                    <li class="nav-item" id="log-in-button"><a class="nav-link" href="#">Log In</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+
+
+    <div id="sign-up">
+        <form>
+            <div class="form-group">
+                <label for="name">Username</label>
+                <input class="w3-input w3-animate-input" type="text" style="width:20vw" id="name"><br>
+            </div>
+            <div class="form-group">
+                <label for="sign-up-email">Email address</label>
+                <input type="email" class="w3-input w3-animate-input"  style="width:20vw"  id="sign-up-email" name="sign-up-email">
+            </div>
+            <div class="form-group">
+                <label for="sign-up-password">Password</label>
+                <input type="password" class="w3-input w3-animate-input" style="width:20vw"  id="sign-up-email" name="sign-up-email">
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="keep-logged-in">
+                    <label class="form-check-label" for="keep-logged-in">
+                        Check me out
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+            <a href="#" id="log-in-instead">Log In Instead</a>
+        </form>
+    </div>
+
+    <div id="log-in" class="w3-container w3-center w3-animate-zoom">
+        <form>
+            <div class="form-group">
+                <label for="log-in-user">Username or Email Address</label>
+                <input type="text" class="w3-input w3-animate-input" id="log-in-user" style="width:20vw" name="log-in-user">
+            </div>
+            <div class="form-group">
+                <label for="log-in-password">Password</label>
+                <input type="password" class="w3-input w3-animate-input" id="log-in-password" style="width:20vw" name="log-in-password">
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="keep-logged-in">
+                    <label class="form-check-label" for="keep-logged-in">
+                        Check me out
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Log In</button>
+            <a href="#" id="sign-up-instead">Sign Up Instead</a>
+        </form>
+    </div>
