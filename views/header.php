@@ -56,31 +56,39 @@
 
 
     <div id="sign-up">
-        <form>
+        <form method="post">
+            <div class="error alert alert-danger" role="alert">
+                <?php
+                    if (isset($error) && $error != "") {
+                        echo $error;
+                    }
+                ?>
+            </div>
             <div class="form-group">
                 <label for="name">Username</label>
-                <input class="w3-input w3-animate-input" type="text" style="width:20vw" id="name"><br>
+                <input class="w3-input w3-animate-input" type="text" style="width:20vw" id="name">
             </div>
             <div class="form-group">
                 <label for="sign-up-email">Email address</label>
-                <input type="email" class="w3-input w3-animate-input"  style="width:20vw"  id="sign-up-email" name="sign-up-email">
+                <input type="email" class="w3-input w3-animate-input" style="width:20vw" id="sign-up-email" name="sign-up-email">
             </div>
             <div class="form-group">
                 <label for="sign-up-password">Password</label>
-                <input type="password" class="w3-input w3-animate-input" style="width:20vw"  id="sign-up-email" name="sign-up-email">
+                <input type="password" class="w3-input w3-animate-input" style="width:20vw" id="sign-up-password" name="sign-up-password">
             </div>
             <div class="form-group">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="keep-logged-in">
+                    <input class="form-check-input" type="checkbox" id="keep-logged-in" value="1" ;>
                     <label class="form-check-label" for="keep-logged-in">
                         Check me out
                     </label>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Sign Up</button>
+            <button type="button" id="sign-up-submit" class="btn btn-primary">Sign Up</button>
             <a href="#" id="log-in-instead">Log In Instead</a>
         </form>
     </div>
+
 
     <div id="log-in" class="w3-container w3-center w3-animate-zoom">
         <form>
@@ -100,7 +108,7 @@
                     </label>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Log In</button>
+            <button type="button" id="log-in-submit" class="btn btn-primary">Log In</button>
             <a href="#" id="sign-up-instead">Sign Up Instead</a>
         </form>
     </div>
