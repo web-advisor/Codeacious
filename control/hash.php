@@ -1,11 +1,11 @@
 <?php
-    // Local Devlopment Credentials :
+    // Local Database Credentials :
         // $host="localhost";
         // $userName="amar";
         // $password="webadvisor@0401";
         // $dbName="codeacious";  
 
-# Production Credentials : 
+    // Remote Database Credentials : 
        $host="remotemysql.com";
        $userName="si0TWQLwAi";
        $password="5L2xT8FNWF";

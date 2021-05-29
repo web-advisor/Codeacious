@@ -10,5 +10,7 @@
 ## My details 
     Name : Amar Sinha
     Contact : +91 958 2289 249
+    Email : sinhaamar68@gmail.com
 
 --- 
+
