@@ -5,7 +5,7 @@ $("#sign-up-submit").click(function () {
     $.ajax({
         type: "POST",
         url: "control/actions.php?process=signup",
-        data: "username=" + $("#name").val() + "&email=" + $("#sign-up-email").val() + "&password=" + $("#sign-up-password").val() + "&keepLoggedIn=" + $("#keep-logged-in").val(),
+        data: "username=" + $("#name").val() + "&email=" + $("#sign-up-email").val() + "&password=" + $("#sign-up-password").val(),
         success: function (result) {
             // alert(result);
             if (result == 1) {

@@ -13,7 +13,7 @@
 </header>
 
 <!-- Content section 1-->
-<section id="scroll">
+<section id="scroll" class="first-section">
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6 order-lg-2">
@@ -29,7 +29,7 @@
     </div>
 </section>
 <!-- Content section 2-->
-<section>
+<section id="second-section">
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6">
@@ -45,7 +45,7 @@
     </div>
 </section>
 <!-- Content section 3-->
-<section>
+<section id="third-section">
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6 order-lg-2">

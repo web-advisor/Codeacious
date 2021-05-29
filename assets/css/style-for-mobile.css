@@ -23,4 +23,13 @@
         top:240px;
         width:50vw;
     }
+    
+    .settings{
+        width:14vw;
+        height: 14vw;
+        position: fixed;
+        right:10px;
+        bottom: 10px;
+    }
+
 }

@@ -49,6 +49,7 @@
                 <ul class="navbar-nav ms-auto">
                     <?php if (isset($_SESSION['id'])) { ?>
                         <li class="nav-item" id="profile-button"><a class="nav-link" href="index.php?page=profile">Profile</a></li>
+                        <li class="nav-item" id="edit-profile-button"><a class="nav-link" href="index.php?page=edit-profile">Edit Profile</a></li>
                         <button type="button" id="log-out-button" class="btn btn-md btn-pill btn-default" style="cursor:pointer;"><a href="?process=logout" style="text-decoration:none; font-weight:bolder; color:#fff;">Logout</a></button>
                     <?php } else {   ?>
                         <li class="nav-item" id="sign-up-button"><a class="nav-link" href="#">Sign Up</a></li>
@@ -84,14 +85,6 @@
                 <label for="sign-up-password">Password</label>
                 <input autocomplete="off" type="password" class="w3-input w3-animate-input" style="width:20vw" id="sign-up-password" name="sign-up-password">
             </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="keep-logged-in" value="1">
-                    <label class="form-check-label" for="keep-logged-in">
-                        Check me out
-                    </label>
-                </div>
-            </div>
             <button type="button" id="sign-up-submit" class="btn btn-primary">Sign Up</button>
             <a href="#" id="log-in-instead">Log In Instead</a>
         </form>
@@ -114,14 +107,6 @@
             <div class="form-group">
                 <label for="log-in-password">Password</label>
                 <input  autocomplete="off" type="password" class="w3-input w3-animate-input" id="log-in-password" style="width:20vw" name="log-in-password">
-            </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="keep-logged-in" value="1">
-                    <label class="form-check-label" for="keep-logged-in">
-                        Check me out
-                    </label>
-                </div>
             </div>
             <button type="button" id="log-in-submit" class="btn btn-primary">Log In</button>
             <a href="#" id="sign-up-instead">Sign Up Instead</a>

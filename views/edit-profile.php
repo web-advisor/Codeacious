@@ -1,14 +1,17 @@
+<?php 
+    include_once("control/details.php");    
+?>
 <!-- Slideshow container -->
 <div class="slideshow-container">
 
     <!-- Full-width images with number and caption text -->
     <div class="mySlides faded" id="fullname-div">
-        <div class="input-label">Hi <strong><?php echo $_SESSION['name']; ?></strong>,
+        <div class="input-label">Hi <strong><?php if (isset($name) && $name!="") echo $name; ?></strong>,
             <br>
             Let's complete your profile, starting with your Full Name.
         </div>
-        <input autocomplete="off" type="text" class="w3-input w3-animate-input profile-input" id="fullname" name="fullname" value="<?php if (isset($_SESSION['fname'])) {
-                echo $_SESSION['fname'] . " " . $_SESSION['lname'];
+        <input autocomplete="off" type="text" class="w3-input w3-animate-input profile-input" id="fullname" name="fullname" value="<?php if (isset($fname) && $fname!="") {
+                echo $fname . " " . $lname;
             } ?>">
         <button class="w3-btn w3-white w3-border w3-border-red w3-text-red w3-round-large submit-button">Save</button>
         <div class="alert alert-danger error" role="alert">
@@ -23,25 +26,25 @@
 
     <div class="mySlides faded" id="phone-div">
 
-        <div class="input-label">Hi <strong><?php echo $_SESSION['name']; ?></strong>,
+        <div class="input-label">Hi <strong><?php if (isset($name) && $name!="") echo $name; ?></strong>,
             <br>
             <?php
-            if (isset($_SESSION['progress']) && $_SESSION['progress'] > 0) {
+            if (isset($progress) && $progress > 0) {
                 echo "Let's Connect ! Contact Details here .";
             } else {
                 echo "Let's start with Contact details";
             }
             ?>
         </div>
-        <input autocomplete="off" type="number" class="w3-input w3-animate-input profile-input" id="phone" name="phone" data-toggle="tooltip" data-placement="left" title="Mobile Number here" value="<?php if (isset($_SESSION['phone'])) {
-                echo $_SESSION['phone'];
+        <input autocomplete="off" type="number" class="w3-input w3-animate-input profile-input" id="phone" name="phone" data-toggle="tooltip" data-placement="left" title="Mobile Number here" value="<?php if (isset($phone) && $phone!="") {
+                echo $phone;
             } ?>">
         <button class="w3-btn w3-white w3-border w3-border-red w3-text-red w3-round-large submit-button">Save</button>
         <div class="numbertext">2 / 4</div>
     </div>
 
     <div class="mySlides faded" id="email-div">
-        <div class="input-label">Hi <strong><?php echo $_SESSION['email']; ?></strong>,</div>
+        <div class="input-label">Hi <strong><?php if (isset($email) && $email!="") echo $email; ?></strong>,</div>
         <?php if(isset($_SESSION['verified']) && $_SESSION["verified"]) echo '<div class="alert alert-succes success" style="display:block;" role="alert">Your Email ID is Verified.</div>'; else echo '<div class="input-label"><br> Time to get Verified ..  
         </div>'; ?>
 
@@ -69,27 +72,27 @@
             A Sweet place called Home. Enter your Address
         </div>
         <form class="form-inline profile-input">
-            <input type="text" class="form-control mb-2 mr-sm-2" id="address" placeholder="Address Line" value="<?php if (isset($_SESSION['address'])) {
-                echo $_SESSION['address'];
+            <input type="text" class="form-control mb-2 mr-sm-2" id="address" placeholder="Address Line" value="<?php if (isset($address)&& $address!="") {
+                echo $address;
             } ?>">
             <div class="input-group mb-2 mr-sm-2">
-                <input type="text" class="form-control" id="city" placeholder="City" value="<?php if (isset($_SESSION['city'])) {
-                echo $_SESSION['city'];
-            } ?>">
-            </div>
-            <div class="input-group mb-2 mr-sm-2">
-                <input type="text" class="form-control" id="state" placeholder="State" value="<?php if (isset($_SESSION['state'])) {
-                echo $_SESSION['state'];
+                <input type="text" class="form-control" id="city" placeholder="City" value="<?php if (isset($city)&& $city!="") {
+                echo $city;
             } ?>">
             </div>
             <div class="input-group mb-2 mr-sm-2">
-                <input type="text" class="form-control" id="country" placeholder="Country" value="<?php if (isset($_SESSION['country'])) {
-                echo $_SESSION['country'];
+                <input type="text" class="form-control" id="state" placeholder="State" value="<?php if (isset($state)&& $state!="") {
+                echo $state;
             } ?>">
             </div>
             <div class="input-group mb-2 mr-sm-2">
-                <input type="text" class="form-control" id="zip" placeholder="ZIP" value="<?php if (isset($_SESSION['pin'])) {
-                echo $_SESSION['pin'];  
+                <input type="text" class="form-control" id="country" placeholder="Country" value="<?php if (isset($country)&& $country!="") {
+                echo $country;
+            } ?>">
+            </div>
+            <div class="input-group mb-2 mr-sm-2">
+                <input type="text" class="form-control" id="zip" placeholder="ZIP" value="<?php if (isset($pin)&& $pin!="") {
+                echo $pin;  
             } ?>">
             </div>
         </form>
@@ -110,9 +113,9 @@
 </div>
 
 <?php
-if (isset($_SESSION['progress']) && $_SESSION['progress'] > 0) { ?>
+if (isset($progress) && $progress > 0) { ?>
     <div class="progress">
-        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width:<?php echo $_SESSION['progress']; ?>%" aria-valuenow="<?php echo $_SESSION['progress']; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $_SESSION['progress']; ?>%</div>
+        <div class="progress-bar progress-bar-striped bg-success" id="progress" role="progressbar" style="width:<?php echo $progress; ?>%" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $progress; ?>%</div>
     </div>
 <?php
 }

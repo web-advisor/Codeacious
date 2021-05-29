@@ -27,9 +27,6 @@ if($_GET["process"]=="login"){
             if($row['password']==md5(md5($row['id']).$_POST['password'])){
                 $id=$row['id'];
                 $_SESSION['id']=$id;
-                $_SESSION['name']=$row['name'];
-                $_SESSION['email']=$row['email'];
-                $_SESSION['progress']=0;
                 echo 1;
             }else{
                 $error="Could not find that Username-Password Combination ! Please try Again !";
@@ -77,13 +74,11 @@ if ($_GET["process"] == "signup") {
         if ($resultQuery) {
             $id = mysqli_insert_id($link);
             $_SESSION['id'] = $id;
-            $_SESSION['name']=$_POST['username'];
-            $_SESSION['email']=$_POST['email'];
-            $_SESSION['progress']=0;
             
             // Password Hashing --------------------- 
             $query = "UPDATE `users` SET `password` = '" . md5(md5($_SESSION['id']) . $_POST['password']) . "' WHERE `id`=" . $id . " LIMIT 1";
             mysqli_query($link, $query);
+            
             echo 1;
         } else {
             $error = "Couldn't Create User - Please try again later ";
@@ -125,9 +120,6 @@ if($_GET["process"]=="fullname"){
         $sql="UPDATE `details` SET `fname`='".mysqli_real_escape_string($link,$fname)."',`lname`='".mysqli_real_escape_string($link,$lname)."' WHERE `userid`='".mysqli_real_escape_string($link,$_SESSION['id'])."' LIMIT 1";
         $resultsql=mysqli_query($link,$sql);
         if($resultsql){
-            $_SESSION['fname']=$fname;
-            $_SESSION['lname']=$lname;
-            $_SESSION['progress']+=25;
             echo 1;
         }else{
             // print_r(mysqli_error($link));
@@ -138,9 +130,6 @@ if($_GET["process"]=="fullname"){
         $insert="INSERT INTO `details` "."(`userid`,`fname`,`lname`,`phone`,`address`,`city`,`state`,`country`,`pin`)"." VALUES "."('".mysqli_real_escape_string($link,$_SESSION['id'])."','".mysqli_real_escape_string($link,$fname)."','".mysqli_real_escape_string($link,$lname)."','phone','address','city','state','country','pin')";
         $resultInsert=mysqli_query($link,$insert);
         if($resultInsert){
-            $_SESSION['fname']=$fname;
-            $_SESSION['lname']=$lname;
-            $_SESSION['progress']=25;
             echo 1;
         }else{
             // echo(mysqli_error($link));
@@ -164,8 +153,6 @@ if($_GET["process"]=="phone"){
         $sql="UPDATE `details` SET `phone`='".mysqli_real_escape_string($link,$_POST['phone'])."' WHERE `userid`='".mysqli_real_escape_string($link,$_SESSION['id'])."' LIMIT 1";
         $resultsql=mysqli_query($link,$sql);
         if($resultsql){
-            $_SESSION['phone']=$_POST['phone'];
-            $_SESSION['progress']+=25;
             echo 1;
         }else{
             // print_r(mysqli_error($link));
@@ -176,8 +163,6 @@ if($_GET["process"]=="phone"){
         $insert="INSERT INTO `details` "."(`userid`,`fname`,`lname`,`phone`,`address`,`city`,`state`,`country`,`pin`)"." VALUES "."('".mysqli_real_escape_string($link,$_SESSION['id'])."','fname','lname','".mysqli_real_escape_string($link,$_POST['phone'])."','address','city','state','country','pin')";
         $resultInsert=mysqli_query($link,$insert);
         if($resultInsert){
-            $_SESSION['phone']=$_POST['phone'];
-            $_SESSION['progress']=25;
             echo 1;
         }else{
             // echo(mysqli_error($link));
@@ -236,7 +221,6 @@ if($_GET['process']=="getcode"){
 if($_GET["process"]=="verifycode"){
     if($_POST["code"]==$_SESSION['code']){
         $_SESSION["verified"]=true;
-        $_SESSION["progress"]+=25;
         echo 1;
     }else{
         $error="Code Doesn't Match ! Come Back after some time .";
@@ -276,12 +260,6 @@ if($_GET["process"]=="address"){
         $sql="UPDATE `details` SET `address`='".mysqli_real_escape_string($link,$_POST["address"])."',`city`='".mysqli_real_escape_string($link,$_POST['city'])."',`state`='".mysqli_real_escape_string($link,$_POST["state"])."',`country`='".mysqli_real_escape_string($link,$_POST['country'])."',`pin`='".mysqli_real_escape_string($link,$_POST['pin'])."' WHERE `userid`='".mysqli_real_escape_string($link,$_SESSION['id'])."' LIMIT 1";
         $resultsql=mysqli_query($link,$sql);
         if($resultsql){
-            $_SESSION['address']=$_POST['address'];
-            $_SESSION['city']=$_POST['city'];
-            $_SESSION['state']=$_POST['state'];
-            $_SESSION['country']=$_POST['country'];
-            $_SESSION['pin']=$_POST['pin'];
-            $_SESSION['progress']+=25;
             echo 1;
         }else{
             $error="Something Gone Wrong ! It's not you, it's US..<br>Please try again later";
@@ -291,12 +269,6 @@ if($_GET["process"]=="address"){
         $insert="INSERT INTO `details` "."(`userid`,`fname`,`lname`,`phone`,`address`,`city`,`state`,`country`,`pin`)"." VALUES "."('".mysqli_real_escape_string($link,$_SESSION['id'])."','fname','lname','phone','".mysqli_real_escape_string($link,$_POST['address'])."','".mysqli_real_escape_string($link,$_POST['city'])."','".mysqli_real_escape_string($link,$_POST['state'])."','".mysqli_real_escape_string($link,$_POST['country'])."','".mysqli_real_escape_string($link,$_POST['pin'])."')";
         $resultInsert=mysqli_query($link,$insert);
         if($resultInsert){
-            $_SESSION['address']=$_POST['address'];
-            $_SESSION['city']=$_POST['city'];
-            $_SESSION['state']=$_POST['state'];
-            $_SESSION['country']=$_POST['country'];
-            $_SESSION['pin']=$_POST['pin'];
-            $_SESSION['progress']=25;
             echo 1;
         }else{
             // echo(mysqli_error($link));
