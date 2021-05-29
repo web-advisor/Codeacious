@@ -77,3 +77,8 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block";
 }
+
+// Get Code Hides and Verify and Input Displays
+$("#email-div .get-code-button").click(function () {
+    
+});

@@ -3,7 +3,9 @@
     
     include_once("views/header.php");
     
-    if(isset($_SESSION["id"]) && (isset($_GET["page"]) && $_GET["page"]=="profile")){
+    if(isset($_SESSION["id"]) && (isset($_GET["page"]) && $_GET["page"]=="edit-profile")){
+        include_once("views/edit-profile.php");
+    }else if(isset($_SESSION["id"]) && (isset($_GET["page"]) && $_GET["page"]=="profile")){
         include_once("views/profile.php");
     }else{
         include_once("views/home.php");

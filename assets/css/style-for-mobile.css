@@ -17,6 +17,10 @@
 
 @media screen and (max-width:576px){
     #address-div .submit-button{
-        top:440px;
+        top:460px;
+    }
+    .profile-input{
+        top:240px;
+        width:50vw;
     }
 }

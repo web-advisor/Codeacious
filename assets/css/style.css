@@ -118,6 +118,36 @@
     background-size: cover;
 }
 
+#fullname-div .error,#phone-div .error,#email-div .error,#email-div .success,#address-div .error{
+    position: absolute;
+    left: 42px;
+    top: 375px;
+    max-width: 75%;
+}
+#email-div .error,#email-div .success{
+    top:210px;
+}
+
+#email-div .profile-input,#email-div .submit-button{
+    display: none;
+}
+
+#email-div .get-code-button{
+    position: absolute;
+    left:42px;
+    top:210px;
+}
+
+#address-div .profile-input{
+    width: 80%;
+    max-width: 80%;
+}
+#address-div .error{
+    max-width:80%;
+    top: 310px;
+}
+
+
 /* Hide the images by default */
 .mySlides {
   display: none;
@@ -178,17 +208,6 @@
     top:310px;
 }
 
-#email-div .profile-input{
-    top:310px;
-}
-
-#email-div .submit-button{
-    top:210px;
-}
-
-#address-div .profile-input{
-    max-width: 80%;
-}
 /* Caption text */
 .text {
   color:#552277;
@@ -232,5 +251,5 @@
 
 .progress{
     width:80%;
-    margin: 0px auto 10px auto;
+    margin: 10px auto;
 }
