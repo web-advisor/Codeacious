@@ -1,9 +1,8 @@
-// ---- jS File for Dynamic Page
+// -------------------   jS File for Dynamic Page --------------
 
 document.onreadystatechange = function () {
     var state = document.readyState
     if (state == 'interactive') {
-        //  document.hide();
         document.getElementById('load').style.visibility = "visible";
     } else if (state == 'complete') {
         setTimeout(function () {
@@ -12,7 +11,9 @@ document.onreadystatechange = function () {
     }
 }
 
-// -------------------- Logging In Form 
+// -------------------- Logging In Form -----------------
+
+// ------- Preventing Spaces in Username  ------------------ 
 var field = document.querySelector('[id="name"]');
 
 field.addEventListener('keypress', function (event) {
@@ -22,12 +23,14 @@ field.addEventListener('keypress', function (event) {
     }
 });
 
+// ------------------------ Tooltip Function Call ---------------------- 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 })
 
+// ---------------------- Sign Up Form and log In Form Toggling Action ----------------------- 
 $("#sign-up-button").click(function () {
-    $(".masthead").slideUp(1500, function () {
+    $(".masthead").slideUp(1000, function () {
         $("#sign-up").slideDown();
         $("#sign-up").addClass("w3-container w3-center w3-animate-zoom");
         $("#log-in").slideUp();
@@ -35,7 +38,7 @@ $("#sign-up-button").click(function () {
 });
 
 $("#log-in-button").click(function () {
-    $(".masthead").slideUp(1500, function () {
+    $(".masthead").slideUp(1000, function () {
         $("#log-in").slideDown();
         $("#log-in").addClass("w3-container w3-center w3-animate-zoom");
         $("#sign-up").slideUp();
@@ -53,7 +56,7 @@ $("#sign-up-instead").click(function () {
 });
 
 
-//  ------------ SlideShow ------------
+//  ------------------------ SlideShow -------------- -----------
 var slideIndex = 1;
 showSlides(slideIndex);
 

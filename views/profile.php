@@ -1,3 +1,5 @@
+<!--  Profile Page with Fetched  Values -->
+
 <?php
 include_once("control/details.php");
 ?>

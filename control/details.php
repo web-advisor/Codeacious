@@ -1,3 +1,5 @@
+<!-- File to Fetch Details of the User From Database to manage Preloaded Values and Profile Display  -->
+
 <?php
 
 $sql = "SELECT * FROM `users`,`details` 

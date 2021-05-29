@@ -1,3 +1,6 @@
+/* ----------------------- Stylings required for Tablet Dimensions  --------------------- */
+
+
 @media screen and (max-width:992px){
     #load p{
         position: relative;

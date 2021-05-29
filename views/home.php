@@ -1,3 +1,5 @@
+<!--  Home Page Body --------------  -->
+
 <header class="masthead text-center text-white">
     <div class="masthead-content">
         <div class="container px-5">

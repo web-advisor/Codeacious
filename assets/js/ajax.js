@@ -1,13 +1,12 @@
 //  Taking Request. Rendering response from Model. Resulting Changes in the View.
 
-// Signing Up Request
+// -------------- Signing Up Request ---------------------
 $("#sign-up-submit").click(function () {
     $.ajax({
         type: "POST",
         url: "control/actions.php?process=signup",
         data: "username=" + $("#name").val() + "&email=" + $("#sign-up-email").val() + "&password=" + $("#sign-up-password").val(),
         success: function (result) {
-            // alert(result);
             if (result == 1) {
                 window.location.assign("index.php?page=edit-profile");
             } else {
@@ -17,14 +16,13 @@ $("#sign-up-submit").click(function () {
     })
 });
 
-// Logging IN process
+//  ------------------------  Logging IN process Request ----------------------- 
 $("#log-in-submit").click(function () {
     $.ajax({
         type: "POST",
         url: "control/actions.php?process=login",
         data: "user=" + $("#log-in-user").val() + "&password=" + $("#log-in-password").val(),
         success: function (result) {
-            // alert(result);
             if (result == 1) {
                 window.location.assign("index.php?page=edit-profile");
             } else {
@@ -34,13 +32,13 @@ $("#log-in-submit").click(function () {
     })
 });
 
+//  ------------------------ NameCheck Request -------------------------
 $("#name").keyup(function () {
     $.ajax({
         type: "POST",
         url: "control/actions.php?process=namecheck",
         data: "username=" + $("#name").val(),
         success: function (result) {
-            // alert(result);
             if (result == 1) {
                 if ($("#name").val() === "" || $("#name").val().length <= 4) {
                     $("#sign-up .success").hide();
@@ -60,14 +58,13 @@ $("#name").keyup(function () {
     })
 });
 
-// ------------ Saving fullname div info
+// ------------ Saving fullname div info ------------------------------- 
 $("#fullname-div .submit-button").click(function () {
     $.ajax({
         type: "POST",
         url: "control/actions.php?process=fullname",
         data: "fullname=" + $("#fullname").val(),
         success: function (result) {
-            // alert(result);
             if (result == 1) {
                 showSlides(1);
                 window.location.assign("index.php?page=edit-profile");
@@ -78,14 +75,13 @@ $("#fullname-div .submit-button").click(function () {
     })
 });
 
-// ------------ Saving phone div info
+// ------------ Saving phone div info ---------------------------- 
 $("#phone-div .submit-button").click(function () {
     $.ajax({
         type: "POST",
         url: "control/actions.php?process=phone",
         data: "phone=" + $("#phone").val(),
         success: function (result) {
-            // alert(result);
             if (result == 1) {
                 showSlides(2);
                 window.location.assign("index.php?page=edit-profile");
@@ -97,7 +93,7 @@ $("#phone-div .submit-button").click(function () {
 });
 
 
-// ------------ Getting Email Code for Verification
+// ------------ Getting Code for Email Verification -------------------- 
 $("#email-div .get-code-button").click(function () {
     $.ajax({
         type: "POST",
@@ -115,7 +111,7 @@ $("#email-div .get-code-button").click(function () {
     })
 });
 
-// ------------ Verification of Code ------------
+// ------------ Verification of Code ------------ --------- 
 $("#email-div .submit-button").click(function () {
     $.ajax({
         type: "POST",
@@ -135,7 +131,7 @@ $("#email-div .submit-button").click(function () {
 });
 
 
-// ------------ Saving Addresss div info
+// ------------ Saving Addresss div info ----------------------
 $("#address-div .submit-button").click(function () {
     $.ajax({
         type: "POST",

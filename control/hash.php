@@ -1,8 +1,8 @@
 <?php
     // Local Database Credentials :
         // $host="localhost";
-        // $userName="amar";
-        // $password="webadvisor@0401";
+        // $userName="";
+        // $password="";
         // $dbName="codeacious";  
 
     // Remote Database Credentials : 

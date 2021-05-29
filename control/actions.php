@@ -1,10 +1,11 @@
 <?php
+ 
 include_once("functions.php");
-$error = "";
-$company="Ipsum Website";
-$company_mail="course.sharing101@gmail.com";
+$error = "";        # Collects Errors 
+$company="Ipsum Website";   # One Step DOM Change
+$company_mail="course.sharing101@gmail.com"; # One Step DOM Change
 
-// Log In action ----------------------------
+//   ------------------------ Log In action ----------------------------
 if($_GET["process"]=="login"){
 
     // Form Validation ----  
@@ -19,7 +20,7 @@ if($_GET["process"]=="login"){
         exit();
     }
 
-        // Signing in the user after checking ------ 
+        // ------ Signing in the user after checking if email Password Match ------ 
         $queryLogIn="SELECT * FROM `users` WHERE `email` = '".mysqli_real_escape_string($link,$_POST['user'])."' OR `name`='".mysqli_real_escape_string($link,$_POST['user'])."' LIMIT 1";
         $resultLogIn=mysqli_query($link,$queryLogIn);
         if($resultLogIn && mysqli_num_rows($resultLogIn) > 0){
@@ -42,7 +43,7 @@ if($_GET["process"]=="login"){
 }
 
 
-// Sign Up Action ---------------------------
+// ------------------------ Sign Up Action ---------------------------
 if ($_GET["process"] == "signup") {
 
     //  Form Validation ------------
@@ -62,20 +63,20 @@ if ($_GET["process"] == "signup") {
         exit();
     }
 
-    // Checking if the Signing Up input email is already taken ------
+    // --------------- Checking if the Signing Up input email is already taken ------
     $sql = "SELECT * FROM `users` WHERE `email` = '" . mysqli_real_escape_string($link, $_POST['email']) . "' LIMIT 1";
     $result = mysqli_query($link, $sql);
     if ($result && mysqli_num_rows($result) > 0) {
         $error = "This Email id is already taken !";
     } else {
-        // Siging up if no user found with entered email ----------
+        //  ---------------- Siging up if no user found with entered email ----------
         $query = "INSERT INTO `users` "."(`name`,`email`,`password`,`code`)"." VALUES "."('" . mysqli_real_escape_string($link, $_POST['username']) . "','" . mysqli_real_escape_string($link, $_POST['email']) . "','" . mysqli_real_escape_string($link, $_POST['password']) . "','" . mysqli_real_escape_string($link, substr(md5(rand(1,999)),0,6))."')";
         $resultQuery=mysqli_query($link, $query);
         if ($resultQuery) {
             $id = mysqli_insert_id($link);
             $_SESSION['id'] = $id;
             
-            // Password Hashing --------------------- 
+            // ---------------- Password Hashing --------------------- 
             $query = "UPDATE `users` SET `password` = '" . md5(md5($_SESSION['id']) . $_POST['password']) . "' WHERE `id`=" . $id . " LIMIT 1";
             mysqli_query($link, $query);
             
@@ -90,7 +91,7 @@ if ($_GET["process"] == "signup") {
     }
 }
 
-// Name Check in the database if it is already taken ---------------
+// ------------------ Name Check in the database if it is already taken ---------------
 if($_GET["process"]=="namecheck"){
     $query="SELECT `name` FROM `users` WHERE `name` = '".mysqli_real_escape_string($link,$_POST['username'])."' LIMIT 1";
     $result=mysqli_query($link,$query);
@@ -102,7 +103,7 @@ if($_GET["process"]=="namecheck"){
 }
 
 
-// Saving Full Name to the Database
+// --------------- Saving Full Name to the Database
 if($_GET["process"]=="fullname"){
     $name=explode(" ",$_POST['fullname']);
     if(count($name)>1){
@@ -116,23 +117,21 @@ if($_GET["process"]=="fullname"){
     $query="SELECT * FROM `details` WHERE `userid`='".mysqli_real_escape_string($link,$_SESSION['id'])."' LIMIT 1";
     $result=mysqli_query($link,$query);
     if($result && mysqli_num_rows($result)>0){
-        // INSERTION of INfo into Details has already been done ! Update Operation Needed
+        // ---------INSERTION of INfo into Details has already been done ! Update Operation Needed
         $sql="UPDATE `details` SET `fname`='".mysqli_real_escape_string($link,$fname)."',`lname`='".mysqli_real_escape_string($link,$lname)."' WHERE `userid`='".mysqli_real_escape_string($link,$_SESSION['id'])."' LIMIT 1";
         $resultsql=mysqli_query($link,$sql);
         if($resultsql){
             echo 1;
         }else{
-            // print_r(mysqli_error($link));
             $error="Something Gone Wrong ! It's not you, it's US..<br>Please try again later";
         }
     }else{
-        // New Insertion to be done in Details Relation
+        // ------- New Insertion to be done in Details Relation
         $insert="INSERT INTO `details` "."(`userid`,`fname`,`lname`,`phone`,`address`,`city`,`state`,`country`,`pin`)"." VALUES "."('".mysqli_real_escape_string($link,$_SESSION['id'])."','".mysqli_real_escape_string($link,$fname)."','".mysqli_real_escape_string($link,$lname)."','phone','address','city','state','country','pin')";
         $resultInsert=mysqli_query($link,$insert);
         if($resultInsert){
             echo 1;
         }else{
-            // echo(mysqli_error($link));
             $error="Something Gone Wrong ! It's not you, it's US..<br>Please try again later";
         }
     }
@@ -144,7 +143,7 @@ if($_GET["process"]=="fullname"){
 
 
 
-// Saving Phone to the Database
+// ----------------------- Saving Phone to the Database ---------------------
 if($_GET["process"]=="phone"){
     $query="SELECT * FROM `details` WHERE `userid`='".mysqli_real_escape_string($link,$_SESSION['id'])."' LIMIT 1";
     $result=mysqli_query($link,$query);
@@ -155,7 +154,6 @@ if($_GET["process"]=="phone"){
         if($resultsql){
             echo 1;
         }else{
-            // print_r(mysqli_error($link));
             $error="Something Gone Wrong ! It's not you, it's US..<br>Please try again later";
         }
     }else{
@@ -175,7 +173,7 @@ if($_GET["process"]=="phone"){
     }
 }
 
-// GEtting Code : 
+// -------------------------- GEtting Code Over EMail ------------------------------  
 $code="";
 if($_GET['process']=="getcode"){
     if(isset($_SESSION['id'])) $id=$_SESSION['id'];
@@ -185,7 +183,7 @@ if($_GET['process']=="getcode"){
     if($result && mysqli_num_rows($result) > 0){
         $row=mysqli_fetch_assoc($result);
 
-        $code=substr(md5($row['code']),2,8);
+        $code=substr(md5($row['code']),2,4);
         $_SESSION['code']=$code;
 
         $to = $row['email'];
@@ -198,8 +196,6 @@ if($_GET['process']=="getcode"){
         // Always set content-type when sending HTML email
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-        // More headers
         $headers .= 'From:'.$company_mail. "\r\n";
         $headers .= 'Cc:'.$company_mail . "\r\n";
 
@@ -217,7 +213,7 @@ if($_GET['process']=="getcode"){
     }
 }
 
-//  VErifying Code
+// --------------------  VErifying Code ----------------------- 
 if($_GET["process"]=="verifycode"){
     if($_POST["code"]==$_SESSION['code']){
         $_SESSION["verified"]=true;
@@ -232,7 +228,7 @@ if($_GET["process"]=="verifycode"){
 }
 
 
-// Saving Full Address to the Database
+// --------------------- Saving Full Address to the Database
 if($_GET["process"]=="address"){
     if (!$_POST["address"]) {
         $error .= "<br>An Address Line is required. ";
@@ -271,7 +267,6 @@ if($_GET["process"]=="address"){
         if($resultInsert){
             echo 1;
         }else{
-            // echo(mysqli_error($link));
             $error="Something Gone Wrong ! It's not you, it's US..<br>Please try again later";
         }
     }
